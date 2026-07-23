@@ -11,3 +11,20 @@ logs/
 target/
 
 dbt_packages/
+# Dataset files
+data/
+*.csv
+
+# Archives
+*.zip
+
+# Python environment
+pipeline-env/
+
+# Airflow files
+airflow/airflow.db
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
