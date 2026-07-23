@@ -1,0 +1,268 @@
+
+============================================================
+FILE: station_hour.csv
+============================================================
+
+Rows and Columns:
+(2589083, 16)
+
+Columns:
+['StationId', 'Datetime', 'PM2.5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene', 'AQI', 'AQI_Bucket']
+
+Data Types:
+StationId         str
+Datetime          str
+PM2.5         float64
+PM10          float64
+NO            float64
+NO2           float64
+NOx           float64
+NH3           float64
+CO            float64
+SO2           float64
+O3            float64
+Benzene       float64
+Toluene       float64
+Xylene        float64
+AQI           float64
+AQI_Bucket        str
+dtype: object
+
+Missing Values:
+StationId           0
+Datetime            0
+PM2.5          647689
+PM10          1119252
+NO             553711
+NO2            528973
+NOx            490808
+NH3           1236618
+CO             499302
+SO2            742737
+O3             725973
+Benzene        861579
+Toluene       1042366
+Xylene        2075104
+AQI            570190
+AQI_Bucket     570190
+dtype: int64
+
+First 5 Rows:
+  StationId             Datetime  PM2.5  ...  Xylene  AQI  AQI_Bucket
+0     AP001  2017-11-24 17:00:00  60.50  ...    0.10  NaN         NaN
+1     AP001  2017-11-24 18:00:00  65.50  ...    0.15  NaN         NaN
+2     AP001  2017-11-24 19:00:00  80.00  ...    0.18  NaN         NaN
+3     AP001  2017-11-24 20:00:00  81.50  ...    0.10  NaN         NaN
+4     AP001  2017-11-24 21:00:00  75.25  ...    0.08  NaN         NaN
+
+[5 rows x 16 columns]
+
+============================================================
+FILE: stations.csv
+============================================================
+
+Rows and Columns:
+(230, 5)
+
+Columns:
+['StationId', 'StationName', 'City', 'State', 'Status']
+
+Data Types:
+StationId      str
+StationName    str
+City           str
+State          str
+Status         str
+dtype: object
+
+Missing Values:
+StationId       0
+StationName     0
+City            0
+State           0
+Status         97
+dtype: int64
+
+First 5 Rows:
+  StationId  ...  Status
+0     AP001  ...  Active
+1     AP002  ...     NaN
+2     AP003  ...     NaN
+3     AP004  ...     NaN
+4     AP005  ...  Active
+
+[5 rows x 5 columns]
+
+============================================================
+FILE: station_day.csv
+============================================================
+
+Rows and Columns:
+(108035, 16)
+
+Columns:
+['StationId', 'Date', 'PM2.5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene', 'AQI', 'AQI_Bucket']
+
+Data Types:
+StationId         str
+Date              str
+PM2.5         float64
+PM10          float64
+NO            float64
+NO2           float64
+NOx           float64
+NH3           float64
+CO            float64
+SO2           float64
+O3            float64
+Benzene       float64
+Toluene       float64
+Xylene        float64
+AQI           float64
+AQI_Bucket        str
+dtype: object
+
+Missing Values:
+StationId         0
+Date              0
+PM2.5         21625
+PM10          42706
+NO            17106
+NO2           16547
+NOx           15500
+NH3           48105
+CO            12998
+SO2           25204
+O3            25568
+Benzene       31455
+Toluene       38702
+Xylene        85137
+AQI           21010
+AQI_Bucket    21010
+dtype: int64
+
+First 5 Rows:
+  StationId        Date  PM2.5    PM10  ...  Toluene  Xylene    AQI  AQI_Bucket
+0     AP001  2017-11-24  71.36  115.75  ...     5.92    0.10    NaN         NaN
+1     AP001  2017-11-25  81.40  124.50  ...     6.50    0.06  184.0    Moderate
+2     AP001  2017-11-26  78.32  129.06  ...     7.95    0.08  197.0    Moderate
+3     AP001  2017-11-27  88.76  135.32  ...     7.63    0.12  198.0    Moderate
+4     AP001  2017-11-28  64.18  104.09  ...     5.02    0.07  188.0    Moderate
+
+[5 rows x 16 columns]
+
+============================================================
+FILE: city_day.csv
+============================================================
+
+Rows and Columns:
+(29531, 16)
+
+Columns:
+['City', 'Date', 'PM2.5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene', 'AQI', 'AQI_Bucket']
+
+Data Types:
+City              str
+Date              str
+PM2.5         float64
+PM10          float64
+NO            float64
+NO2           float64
+NOx           float64
+NH3           float64
+CO            float64
+SO2           float64
+O3            float64
+Benzene       float64
+Toluene       float64
+Xylene        float64
+AQI           float64
+AQI_Bucket        str
+dtype: object
+
+Missing Values:
+City              0
+Date              0
+PM2.5          4598
+PM10          11140
+NO             3582
+NO2            3585
+NOx            4185
+NH3           10328
+CO             2059
+SO2            3854
+O3             4022
+Benzene        5623
+Toluene        8041
+Xylene        18109
+AQI            4681
+AQI_Bucket     4681
+dtype: int64
+
+First 5 Rows:
+        City        Date  PM2.5  PM10  ...  Toluene  Xylene  AQI  AQI_Bucket
+0  Ahmedabad  2015-01-01    NaN   NaN  ...     0.02    0.00  NaN         NaN
+1  Ahmedabad  2015-01-02    NaN   NaN  ...     5.50    3.77  NaN         NaN
+2  Ahmedabad  2015-01-03    NaN   NaN  ...    16.40    2.25  NaN         NaN
+3  Ahmedabad  2015-01-04    NaN   NaN  ...    10.14    1.00  NaN         NaN
+4  Ahmedabad  2015-01-05    NaN   NaN  ...    18.89    2.78  NaN         NaN
+
+[5 rows x 16 columns]
+
+============================================================
+FILE: city_hour.csv
+============================================================
+
+Rows and Columns:
+(707875, 16)
+
+Columns:
+['City', 'Datetime', 'PM2.5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene', 'AQI', 'AQI_Bucket']
+
+Data Types:
+City              str
+Datetime          str
+PM2.5         float64
+PM10          float64
+NO            float64
+NO2           float64
+NOx           float64
+NH3           float64
+CO            float64
+SO2           float64
+O3            float64
+Benzene       float64
+Toluene       float64
+Xylene        float64
+AQI           float64
+AQI_Bucket        str
+dtype: object
+
+Missing Values:
+City               0
+Datetime           0
+PM2.5         145088
+PM10          296737
+NO            116632
+NO2           117122
+NOx           123224
+NH3           272542
+CO             86517
+SO2           130373
+O3            129208
+Benzene       163646
+Toluene       220607
+Xylene        455829
+AQI           129080
+AQI_Bucket    129080
+dtype: int64
+
+First 5 Rows:
+        City             Datetime  PM2.5  PM10  ...  Toluene  Xylene  AQI  AQI_Bucket
+0  Ahmedabad  2015-01-01 01:00:00    NaN   NaN  ...      0.0     0.0  NaN         NaN
+1  Ahmedabad  2015-01-01 02:00:00    NaN   NaN  ...      0.0     0.0  NaN         NaN
+2  Ahmedabad  2015-01-01 03:00:00    NaN   NaN  ...      0.0     0.0  NaN         NaN
+3  Ahmedabad  2015-01-01 04:00:00    NaN   NaN  ...      0.0     0.0  NaN         NaN
+4  Ahmedabad  2015-01-01 05:00:00    NaN   NaN  ...      0.0     0.0  NaN         NaN
+
+[5 rows x 16 columns]
