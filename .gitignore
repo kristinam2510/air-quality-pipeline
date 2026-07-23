@@ -1,0 +1,13 @@
+pipeline-env/
+
+__pycache__/
+
+.env
+
+logs/
+
+.airflow/
+
+target/
+
+dbt_packages/

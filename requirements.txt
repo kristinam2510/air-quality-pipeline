@@ -1,0 +1,17 @@
+pandas
+numpy
+
+clickhouse-connect
+
+apache-airflow
+
+dbt-core
+dbt-clickhouse
+
+psycopg2-binary
+
+python-dotenv
+
+kafka-python
+
+pytest
