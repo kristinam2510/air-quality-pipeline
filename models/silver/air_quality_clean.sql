@@ -1,32 +1,26 @@
 {{ config(
     materialized='table',
-    engine='ReplacingMergeTree()',
-    order_by='(City, Date)'
+    schema='silver'
 ) }}
 
 SELECT
-
     City,
-
     Date,
 
-    coalesce(PM25,0) AS PM25,
-    coalesce(PM10,0) AS PM10,
-    coalesce(NO,0) AS NO,
-    coalesce(NO2,0) AS NO2,
-    coalesce(NOx,0) AS NOx,
-    coalesce(NH3,0) AS NH3,
-    coalesce(CO,0) AS CO,
-    coalesce(SO2,0) AS SO2,
-    coalesce(O3,0) AS O3,
+    if(isNaN(PM25), NULL, PM25) AS PM25,
+    if(isNaN(PM10), NULL, PM10) AS PM10,
+    if(isNaN(NO), NULL, NO) AS NO,
+    if(isNaN(NO2), NULL, NO2) AS NO2,
+    if(isNaN(NOx), NULL, NOx) AS NOx,
+    if(isNaN(NH3), NULL, NH3) AS NH3,
+    if(isNaN(CO), NULL, CO) AS CO,
+    if(isNaN(SO2), NULL, SO2) AS SO2,
+    if(isNaN(O3), NULL, O3) AS O3,
+    if(isNaN(AQI), NULL, AQI) AS AQI,
 
     Benzene,
     Toluene,
     Xylene,
-
-    AQI,
     AQI_Bucket
 
-FROM bronze.city_day_raw
-
-WHERE AQI IS NOT NULL
+FROM {{ source('bronze','city_day_raw') }}

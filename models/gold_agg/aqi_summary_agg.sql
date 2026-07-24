@@ -13,6 +13,6 @@ SELECT
     minState(min_aqi) AS min_aqi_state,
     sumState(total_records) AS total_records_state
 
-FROM gold.daily_city_aqi
+FROM {{ ref('daily_city_aqi') }}
 
 GROUP BY City

@@ -3,86 +3,49 @@ version: 2
 models:
 
   - name: air_quality_clean
-    description: "Cleaned daily city-level air quality data from Bronze layer."
+    description: "Cleaned city-level air quality data with NaN values converted to NULL."
 
     columns:
 
       - name: City
-        description: "Name of the city."
+        description: "City name"
         tests:
           - not_null
 
       - name: Date
-        description: "Date of air quality measurement."
+        description: "Observation date"
         tests:
           - not_null
+
+      - name: PM25
+        description: "PM2.5 concentration"
+
+      - name: PM10
+        description: "PM10 concentration"
+
+      - name: "NO"
+        description: "Nitric oxide concentration"
+
+      - name: NO2
+        description: "Nitrogen dioxide concentration"
+
+      - name: NOx
+        description: "Nitrogen oxides concentration"
+
+      - name: NH3
+        description: "Ammonia concentration"
+
+      - name: CO
+        description: "Carbon monoxide concentration"
+
+      - name: SO2
+        description: "Sulfur dioxide concentration"
+
+      - name: O3
+        description: "Ozone concentration"
 
       - name: AQI
-        description: "Air Quality Index value."
-        tests:
-          - not_null
+        description: "Air Quality Index. NULL values allowed when unavailable."
 
-
-  - name: city_hour_clean
-    description: "Cleaned hourly city-level air quality measurements."
-
-    columns:
-
-      - name: City
-        description: "City name."
-        tests:
-          - not_null
-
-      - name: Datetime
-        description: "Hourly timestamp."
-        tests:
-          - not_null
-
-
-  - name: station_clean
-    description: "Cleaned air quality monitoring station information."
-
-    columns:
-
-      - name: station_id
-        description: "Unique station identifier."
-        tests:
-          - not_null
-          - unique
-
-      - name: city
-        description: "Station city."
-        tests:
-          - not_null
-
-
-  - name: station_day_clean
-    description: "Daily station-level pollution measurements."
-
-    columns:
-
-      - name: StationId
-        description: "Station identifier."
-        tests:
-          - not_null
-
-      - name: Date
-        description: "Measurement date."
-        tests:
-          - not_null
-
-
-  - name: station_hour_clean
-    description: "Hourly station-level pollution measurements."
-
-    columns:
-
-      - name: StationId
-        description: "Station identifier."
-        tests:
-          - not_null
-
-      - name: Datetime
-        description: "Hourly measurement timestamp."
-        tests:
-          - not_null
+      - name: AQI_Bucket
+        description: "AQI category classification"

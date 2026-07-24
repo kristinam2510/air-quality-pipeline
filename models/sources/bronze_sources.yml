@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: city_day_raw
+      - name: city_hour_raw
+      - name: station_day_raw
+      - name: station_hour_raw
+      - name: station_raw

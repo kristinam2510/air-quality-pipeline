@@ -12,13 +12,13 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-
 models:
-
   dbt_air_quality:
-
     silver:
+      +schema: silver
 
     gold:
-    
+      +schema: gold
+
     gold_agg:
+      +schema: gold
