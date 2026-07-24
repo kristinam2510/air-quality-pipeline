@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: gold
+    database: gold
+    schema: gold
+    tables:
+      - name: daily_city_aqi
