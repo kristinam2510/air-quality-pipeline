@@ -1,5 +1,5 @@
 {{ config(
-    materialized='incremental'
+    materialized='incremental',
     schema='gold',
     engine='MergeTree()',
     order_by='(City, Date)'
