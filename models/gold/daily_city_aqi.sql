@@ -1,27 +1,23 @@
 {{ config(
-    materialized='table',
-    schema='gold',
-    engine='MergeTree()',
-    order_by='(City, Date)'
+    materialized='table'
 ) }}
 
 SELECT
 
     City,
-
     Date,
 
-    avg(AQI) AS avg_aqi,
+    avgIf(AQI, isFinite(AQI)) AS avg_aqi,
 
-    max(AQI) AS max_aqi,
+    maxIf(AQI, isFinite(AQI)) AS max_aqi,
 
-    min(AQI) AS min_aqi,
+    minIf(AQI, isFinite(AQI)) AS min_aqi,
 
-    count() AS total_records
+    countIf(isFinite(AQI)) AS total_records
+
 
 FROM silver.air_quality_clean
 
 GROUP BY
-
     City,
     Date
