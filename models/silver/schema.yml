@@ -1,0 +1,52 @@
+version: 2
+
+models:
+
+  - name: air_quality_clean
+    description: "Cleaned daily city air quality data"
+
+    columns:
+      - name: City
+        tests:
+          - not_null
+
+      - name: Date
+        tests:
+          - not_null
+
+
+  - name: city_hour_clean
+    description: "Hourly city air quality data"
+
+    columns:
+      - name: City
+        tests:
+          - not_null
+
+      - name: Datetime
+        tests:
+          - not_null
+
+
+  - name: station_clean
+    description: "Air quality monitoring stations"
+
+    columns:
+      - name: station_id
+        tests:
+          - not_null
+          - unique
+
+
+  - name: station_day_clean
+    columns:
+      - name: StationId
+        tests:
+          - not_null
+
+
+  - name: station_hour_clean
+    columns:
+      - name: StationId
+        tests:
+          - not_null

@@ -1,67 +1,61 @@
 import pandas as pd
 from clickhouse_driver import Client
 import uuid
-from datetime import datetime
 
 
-# ClickHouse connection
 client = Client(
     host='localhost',
     user='default',
-    password='YOUR_PASSWORD',
+    password='clickhouse123',
     database='bronze'
 )
 
 
-# File path
 file_path = "data/stations.csv"
-
 
 print("Loading stations.csv")
 
 
-# Read CSV
-df = pd.read_csv(file_path)
+# Read CSV correctly
+df = pd.read_csv(file_path, encoding="utf-8-sig")
 
 
 print("Rows loaded:", len(df))
 
 
-# Rename columns to match ClickHouse
+# Rename columns
 df = df.rename(columns={
     "StationId": "station_id",
     "StationName": "station_name",
     "City": "city",
-    "State": "state"
+    "State": "state",
+    "Status": "status"
 })
 
 
-# Add missing columns
-df["latitude"] = None
-df["longitude"] = None
+# Fill missing status values
+df["status"] = df["status"].fillna("")
 
 
-# Metadata columns
+# Metadata
 df["source_file"] = "stations.csv"
 df["batch_id"] = str(uuid.uuid4())
 
 
-# Select final order matching table
+# Select columns matching ClickHouse
 df = df[
     [
         "station_id",
         "station_name",
         "city",
         "state",
-        "latitude",
-        "longitude",
+        "status",
         "source_file",
         "batch_id"
     ]
 ]
 
 
-# Convert dataframe to list of tuples
 data = [
     tuple(row)
     for row in df.to_numpy()
@@ -71,7 +65,6 @@ data = [
 print("Prepared rows:", len(data))
 
 
-# Insert
 client.execute(
     """
     INSERT INTO bronze.station_raw
@@ -80,8 +73,7 @@ client.execute(
         station_name,
         city,
         state,
-        latitude,
-        longitude,
+        status,
         source_file,
         batch_id
     )

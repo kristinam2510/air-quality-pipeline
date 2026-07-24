@@ -1,0 +1,17 @@
+name: 'dbt_air_quality'
+version: '1.0'
+config-version: 2
+
+profile: 'air_quality_dbt'
+
+model-paths: ["models"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_air_quality:
+    silver:
+
