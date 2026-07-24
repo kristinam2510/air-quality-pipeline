@@ -7,11 +7,16 @@ profile: 'air_quality_dbt'
 model-paths: ["models"]
 
 target-path: "target"
+
 clean-targets:
   - "target"
   - "dbt_packages"
 
+
 models:
+
   dbt_air_quality:
+
     silver:
 
+    gold:
