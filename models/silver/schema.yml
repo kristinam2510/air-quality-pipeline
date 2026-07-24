@@ -3,50 +3,86 @@ version: 2
 models:
 
   - name: air_quality_clean
-    description: "Cleaned daily city air quality data"
+    description: "Cleaned daily city-level air quality data from Bronze layer."
 
     columns:
+
       - name: City
+        description: "Name of the city."
         tests:
           - not_null
 
       - name: Date
+        description: "Date of air quality measurement."
+        tests:
+          - not_null
+
+      - name: AQI
+        description: "Air Quality Index value."
         tests:
           - not_null
 
 
   - name: city_hour_clean
-    description: "Hourly city air quality data"
+    description: "Cleaned hourly city-level air quality measurements."
 
     columns:
+
       - name: City
+        description: "City name."
         tests:
           - not_null
 
       - name: Datetime
+        description: "Hourly timestamp."
         tests:
           - not_null
 
 
   - name: station_clean
-    description: "Air quality monitoring stations"
+    description: "Cleaned air quality monitoring station information."
 
     columns:
+
       - name: station_id
+        description: "Unique station identifier."
         tests:
           - not_null
           - unique
 
+      - name: city
+        description: "Station city."
+        tests:
+          - not_null
+
 
   - name: station_day_clean
+    description: "Daily station-level pollution measurements."
+
     columns:
+
       - name: StationId
+        description: "Station identifier."
+        tests:
+          - not_null
+
+      - name: Date
+        description: "Measurement date."
         tests:
           - not_null
 
 
   - name: station_hour_clean
+    description: "Hourly station-level pollution measurements."
+
     columns:
+
       - name: StationId
+        description: "Station identifier."
+        tests:
+          - not_null
+
+      - name: Datetime
+        description: "Hourly measurement timestamp."
         tests:
           - not_null
